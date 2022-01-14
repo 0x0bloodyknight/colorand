@@ -19,17 +19,19 @@ class HomePage extends StatefulWidget {
   final String title;
   final Color? color;
 
+  static Color defaultColor = Colors.white;
+
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  Color _color = Colors.white;
+  Color? _color;
 
   @override
   void initState() {
     super.initState();
-    _color = widget.color ?? _color;
+    _color = widget.color ?? widget._defaultColor;
   }
 
   Color _getRandomColor() {
@@ -43,6 +45,11 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onLongPress: () {
+        setState(() {
+          _color = widget._defaultColor;
+        });
+      },
       onTap: () {
         setState(() {
           _color = _getRandomColor();
