@@ -18,8 +18,7 @@ class HomePage extends StatefulWidget {
   const HomePage({Key? key, required this.title, this.color}) : super(key: key);
   final String title;
   final Color? color;
-
-  static Color defaultColor = Colors.white;
+  final Color _defaultColor = Colors.white;
 
   @override
   State<HomePage> createState() => _HomePageState();
