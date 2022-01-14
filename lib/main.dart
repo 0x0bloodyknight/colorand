@@ -28,7 +28,13 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  late Color _color = widget.color ?? Colors.white;
+  Color _color = Colors.white;
+
+  @override
+  void initState() {
+    super.initState();
+    _color = widget.color ?? _color;
+  }
 
   Color _getRandomColor() {
     final _random = Random();
