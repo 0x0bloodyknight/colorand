@@ -39,8 +39,9 @@ class _HomePageState extends State<HomePage> {
   Color _getRandomColor() {
     final _random = Random();
 
-    // 0xRRGGBB + 1(because nextInt is exclusive)
-    return Color(_random.nextInt(0xFFFFFF + 1)).withOpacity(1.0);
+    const _max = 0xFFFFFF + 1; // 0xRRGGBB + 1(because nextInt is exclusive)
+
+    return Color(_random.nextInt(_max)).withOpacity(1.0);
   }
 
   @override
